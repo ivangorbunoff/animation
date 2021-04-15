@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML-баннер</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        @keyframes text1
+        {
+            100%{opacity: 1;}
+        }
+
+
+        .animate
+        {
+            animation : text1 2s forwards;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            width: 40%;
+            border: 1px solid red;
+        }
+        .text {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 100px;
+            right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper-text">
+        <h3 class="title">Title 1</h3>
+        <p class="text">Lorem 1 ipsum dolor sit amet, consectetur adipisicing elit. Ad alias aspernatur commodi, iure laudantium quis repellat saepe? Aliquid, sit, velit.</p>
+    </div>
+    <div class="wrapper-text">
+        <h3 class="title">Title 2</h3>
+        <p class="text">Lorem 2 ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis necessitatibus sunt. Ad architecto dolore expedita magnam rem tempore voluptatem.</p>
+    </div>
+    <script>
+        const texts = document.querySelectorAll(".title");
+        texts.forEach(function (item) {
+            item.addEventListener("click", () => {
+                item.nextElementSibling.classList.toggle("animate")
+            })
+        });
+    </script>
+</body>
+</html>
