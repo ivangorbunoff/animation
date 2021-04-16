@@ -8,11 +8,23 @@
         {
             100%{opacity: 1;}
         }
-
-
-        .animate
+        @keyframes text2
         {
+            100%{opacity: 0;}
+        }
+
+
+
+        .active + .animate
+        {
+            color: red;
             animation : text1 2s forwards;
+        }
+
+        .title + p
+        {
+            color: green;
+            animation : text2 2s forwards;
         }
 
         body {
@@ -33,8 +45,8 @@
 </head>
 <body>
     <div class="wrapper-text">
-        <h3 class="title">Title 1</h3>
-        <p class="text">Lorem 1 ipsum dolor sit amet, consectetur adipisicing elit. Ad alias aspernatur commodi, iure laudantium quis repellat saepe? Aliquid, sit, velit.</p>
+        <h3 class="title active">Title 1</h3>
+        <p class="text animate">Lorem 1 ipsum dolor sit amet, consectetur adipisicing elit. Ad alias aspernatur commodi, iure laudantium quis repellat saepe? Aliquid, sit, velit.</p>
     </div>
     <div class="wrapper-text">
         <h3 class="title">Title 2</h3>
@@ -44,6 +56,9 @@
         const texts = document.querySelectorAll(".title");
         texts.forEach(function (item) {
             item.addEventListener("click", () => {
+                document.querySelector(".active").classList.toggle("active")
+                item.classList.toggle("active")
+                document.querySelector(".animate").classList.toggle("animate")
                 item.nextElementSibling.classList.toggle("animate")
             })
         });
