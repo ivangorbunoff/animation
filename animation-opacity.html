@@ -4,53 +4,69 @@
     <title>HTML-баннер</title>
     <meta charset="utf-8" />
     <style type="text/css">
+        @keyframes text1
+        {
+            from {
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
 
 
         .active + .animate
         {
-            opacity: 1;
+            display: block;
+            color: red;
+            animation : text1 2s forwards;
         }
 
-        body {
+
+        .wrapper {
             display: flex;
             flex-direction: column;
             position: relative;
             width: 40%;
             border: 1px solid red;
+            overflow: scroll;
         }
         .text {
             opacity: 0;
+            display: none;
             position: absolute;
             top: 0;
             left: 100px;
             right: 5px;
-            transition-property: opacity;
-            transition-duration: 3s;
-        }
-        .title {
-            cursor: pointer;
         }
     </style>
 </head>
 <body>
+
+<div class="wrapper">
     <div class="wrapper-text">
         <h3 class="title active">Title 1</h3>
         <p class="text animate">Lorem 1 ipsum dolor sit amet, consectetur adipisicing elit. Ad alias aspernatur commodi, iure laudantium quis repellat saepe? Aliquid, sit, velit.</p>
     </div>
     <div class="wrapper-text">
         <h3 class="title">Title 2</h3>
-        <p class="text">Lorem 2 ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis necessitatibus sunt. Ad architecto dolore expedita magnam rem tempore voluptatem.</p>
+        <p class="text">Lorem 2 ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis necessitatibus sunt. Ad architecto dolore expedita magnam rem tempore voluptatem.
+            Lorem 2 ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis necessitatibus sunt. Ad architecto dolore expedita magnam rem tempore voluptatem
+            Lorem 2 ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis necessitatibus sunt. Ad architecto dolore expedita magnam rem tempore voluptatem</p>
     </div>
-    <script>
-        const texts = document.querySelectorAll(".title");
-        texts.forEach(function (item) {
-            item.addEventListener("click", () => {
-                document.querySelector(".active").classList.toggle("active")
-                item.classList.toggle("active")
-                document.querySelector(".animate").classList.toggle("animate")
-                item.nextElementSibling.classList.toggle("animate")
-            })
-        });
-    </script>
+</div>
+
+
+<script>
+    const texts = document.querySelectorAll(".title");
+    texts.forEach(function (item) {
+        item.addEventListener("click", () => {
+            document.querySelector(".active").classList.toggle("active")
+            item.classList.toggle("active")
+            document.querySelector(".animate").classList.toggle("animate")
+            item.nextElementSibling.classList.toggle("animate")
+        })
+    });
+</script>
 </body>
 </html>
