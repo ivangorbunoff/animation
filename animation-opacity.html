@@ -6,22 +6,44 @@
     <style type="text/css">
         @keyframes text1
         {
-            from {
+            0% {
+                display: none;
                 opacity: 0;
             }
-            100%{
+
+            1% {
+                display: block;
+                opacity: 0;
+            }
+
+            100% {
+                display: block;
                 opacity: 1;
             }
         }
-
+        @keyframes text2
+        {
+            0% {
+                display: block;
+                opacity: 1;
+            }
+            99%{
+                display: block;
+                opacity: 0;
+            }
+            100%{
+                display: none;
+            }
+        }
 
         .active + .animate
         {
-            display: block;
-            color: red;
-            animation : text1 2s forwards;
+            animation : text1 2s forwards 1s;
         }
 
+        .hide {
+            animation : text2 1s forwards;
+        }
 
         .wrapper {
             display: flex;
@@ -31,9 +53,10 @@
             border: 1px solid red;
             overflow: scroll;
         }
+
         .text {
             opacity: 0;
-            display: none;
+            /*display: none;*/
             position: absolute;
             top: 0;
             left: 100px;
@@ -61,10 +84,15 @@
     const texts = document.querySelectorAll(".title");
     texts.forEach(function (item) {
         item.addEventListener("click", () => {
-            document.querySelector(".active").classList.toggle("active")
-            item.classList.toggle("active")
-            document.querySelector(".animate").classList.toggle("animate")
-            item.nextElementSibling.classList.toggle("animate")
+            let old = document.querySelector(".active");
+            old.classList.remove("active");
+            old = document.querySelector(".animate");
+            old.classList.remove("animate");
+            old.classList.add("hide");
+
+            item.classList.add("active");
+            item.nextElementSibling.classList.remove("hide");
+            item.nextElementSibling.classList.add("animate");
         })
     });
 </script>
