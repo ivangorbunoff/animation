@@ -36,7 +36,7 @@
             }
         }
 
-        .active + .animate
+        .animate
         {
             animation : text1 2s forwards 1s;
         }
@@ -67,32 +67,34 @@
 <body>
 
 <div class="wrapper">
-    <div class="wrapper-text">
-        <h3 class="title active">Title 1</h3>
-        <p class="text animate">Lorem 1 ipsum dolor sit amet, consectetur adipisicing elit. Ad alias aspernatur commodi, iure laudantium quis repellat saepe? Aliquid, sit, velit.</p>
+    <div class="wrapper-title">
+        <h3 class="trigger" data-tab="1">Title 1</h3>
+        <h3 class="trigger" data-tab="2">Title 2</h3>
+        <h3 class="trigger" data-tab="3">Title 3</h3>
     </div>
-    <div class="wrapper-text">
-        <h3 class="title">Title 2</h3>
-        <p class="text">Lorem 2 ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis necessitatibus sunt. Ad architecto dolore expedita magnam rem tempore voluptatem.
-            Lorem 2 ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis necessitatibus sunt. Ad architecto dolore expedita magnam rem tempore voluptatem
-            Lorem 2 ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis necessitatibus sunt. Ad architecto dolore expedita magnam rem tempore voluptatem</p>
+    <div class="wrapper-content">
+        <p class="text animate" data-tab="1">Lorem 1 ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis necessitatibus sunt. Ad architecto dolore expedita magnam rem tempore voluptatem.
+        <p class="text" data-tab="2">Lorem 2 ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis necessitatibus sunt. Ad architecto dolore expedita magnam rem tempore voluptatem.
+        <p class="text" data-tab="3">Lorem 3 ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis necessitatibus sunt. Ad architecto dolore expedita magnam rem tempore voluptatem.
+            Lorem  ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis necessitatibus sunt. Ad architecto dolore expedita magnam rem tempore voluptatem
+            Lorem  ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis necessitatibus sunt. Ad architecto dolore expedita magnam rem tempore voluptatem</p>
     </div>
 </div>
 
 
 <script>
-    const texts = document.querySelectorAll(".title");
+    let texts = document.querySelectorAll(".trigger");
     texts.forEach(function (item) {
-        item.addEventListener("click", () => {
-            let old = document.querySelector(".active");
-            old.classList.remove("active");
-            old = document.querySelector(".animate");
+        item.addEventListener("click", function() {
+            let id = this.getAttribute('data-tab');
+            let content = document.querySelector('.text[data-tab="'+id+'"]');
+
+            let old = document.querySelector(".animate");
             old.classList.remove("animate");
             old.classList.add("hide");
 
-            item.classList.add("active");
-            item.nextElementSibling.classList.remove("hide");
-            item.nextElementSibling.classList.add("animate");
+            content.classList.remove("hide");
+            content.classList.add("animate");
         })
     });
 </script>
