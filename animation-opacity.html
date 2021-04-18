@@ -62,10 +62,8 @@
             position: relative;
         }
         .rect {
-            width: 20px;
-            height: 20px;
             position: absolute;
-            left: 50px;
+            left: 77px;
             transition-property: transform;
             transition-duration: 1s;
         }
@@ -73,10 +71,10 @@
             width: 20px;
             height: 20px;
         }
-        ul {
+        ul.trigger-container {
             list-style-type: none;
         }
-        li {
+        li.trigger {
             margin-bottom: 20px;
         }
         .wrapper-content {
@@ -98,18 +96,25 @@
             <img src="./images/arrow.svg" alt="">
         </div>
         <div class="wrapper-title">
-            <ul>
+            <ul class="trigger-container">
                 <li class="trigger active" data-tab="1">Title 1Title 1Title 1Title 1Title 1Title 1Title 1</li>
                 <li class="trigger" data-tab="2">Title 2</li>
                 <li class="trigger" data-tab="3">Title 3</li>
             </ul>
         </div>
         <div class="wrapper-content">
-            <p class="text animate" data-tab="1">Lorem 1 ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis necessitatibus sunt. Ad architecto dolore expedita magnam rem tempore voluptatem.
-            <p class="text" data-tab="2">Lorem 2 ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis necessitatibus sunt. Ad architecto dolore expedita magnam rem tempore voluptatem.
-            <p class="text" data-tab="3">Lorem 3 ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis necessitatibus sunt. Ad architecto dolore expedita magnam rem tempore voluptatem.
-                Lorem  ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis necessitatibus sunt. Ad architecto dolore expedita magnam rem tempore voluptatem
-                Lorem  ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis necessitatibus sunt. Ad architecto dolore expedita magnam rem tempore voluptatem</p>
+            <ul class="text animate" data-tab="1">
+                <li>Lorem 1 ipsum dolor sit amet, consectetur adipisicing elit. Excepturi impedit ipsam minus repellat. Amet animi atque blanditiis earum eligendi eveniet excepturi, inventore minima nisi nostrum, obcaecati, optio porro praesentium quaerat quis quo quod reprehenderit saepe voluptatem voluptates? Et, ipsam itaque, iure libero maxime, minima nihil nostrum odio quae rem voluptas?</li>
+                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, tempora.</li>
+            </ul>
+            <ul class="text" data-tab="2">
+                <li>Lorem 2 ipsum dolor sit amet, consectetur adipisicing elit. Enim, tempora.</li>
+                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, tempora.</li>
+            </ul>
+            <ul class="text" data-tab="3">
+                <li>Lorem 3 ipsum dolor sit amet, consectetur adipisicing elit. Enim, tempora.</li>
+                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, tempora.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, tempora.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, tempora.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, tempora.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, tempora.</li>
+            </ul>
         </div>
     </div>
 <script>
