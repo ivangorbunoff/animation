@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 50px 15px;
+            font-family: sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #9d10a1;
+            text-align: left;
+            background-color: #fff;
+        }
+
+        .list-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .list-group-item {
+            position: relative;
+            display: block;
+            margin-bottom: -1px;
+            background-color: rgb(187, 238, 235);
+            border: 1px solid rgba(0, 0, 0, 0.125);
+        }
+
+        .list-content {
+            overflow: hidden;
+            max-height: 0;
+            background-color: rgb(216, 246, 239);
+            transition: max-height 0.5s;
+        }
+
+        .spoiler-body {
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="list-group">
+        <div class="list-group-item list-header" data-name="spoiler-title">
+            Заголовок #1
+        </div>
+        <div class="list-group-item list-content">
+            Не следует, однако забывать, что реализация намеченных плановых заданий позволяет выполнять важные задания по разработке позиций, занимаемых участниками в отношении поставленных задач..
+        </div>
+
+        <div class="list-group-item list-header" data-name="spoiler-title">
+            Заголовок #2
+        </div>
+        <div class="list-group-item list-content">
+            Равным образом реализация намеченных плановых заданий играет важную роль в формировании системы обучения кадров, соответствует насущным потребностям. Равным образом начало повседневной работы по формированию позиции играет важную роль в формировании систем массового участия.
+        </div>
+
+        <div class="list-group-item list-header" data-name="spoiler-title">
+            Заголовок #3
+        </div>
+        <div class="list-group-item list-content">
+            Значимость этих проблем настолько очевидна, что рамки и место обучения кадров требуют от нас анализа существенных финансовых и административных условий.
+        </div>
+    </div>
+    <script>
+        const headers = document.querySelectorAll("[data-name='spoiler-title']");
+
+        headers.forEach(function (item) {
+            item.addEventListener("click", headerClick);
+        });
+
+        function headerClick() {
+            this.nextElementSibling.classList.toggle("spoiler-body");
+        }
+    </script>
+</body>
+</html>
